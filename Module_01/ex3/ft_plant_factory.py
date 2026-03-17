@@ -9,8 +9,12 @@ class Plant:
 
 if __name__ == "__main__":
     while True:
-        name = input("\nWrite:\n'plant name' to add a new plant")
-        starting_height = float(input("Enter height (cm): "))
-        starting_age = int(input("Enter age (days): "))
-        new_plant = Plant(name, height, age_plant)
+        name = input("\nWrite:\n'plant name' to add a new plant or 'stop' to quit")
+        if name == "stop": 
+            break;
+        else:
+            starting_height = float(input("Enter height (cm): "))
+            starting_age = int(input("Enter age (days): "))
+            new_plant = Plant(name, starting_height, starting_age)
+            
 
