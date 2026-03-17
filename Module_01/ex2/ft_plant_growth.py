@@ -25,7 +25,8 @@ class Plant:
     def __str__(self):
         return f"{uppercase(self.name)}: {self.height}cm, {self.age_plant} days old"
 
-    def delete_plant(self, name: str):
+    @classmethod
+    def delete_plant(cls, name: str):
         Plant.Garden = [p for p in Plant.Garden if p.name != name]
 
     def grow(self) -> float:
@@ -35,10 +36,11 @@ class Plant:
     def age(self, days: int) -> int:
         self.age_plant = self.age_plant + 1
         return self.age_plant
-
-    def get_info() -> None:
+    
+    @classmethod
+    def get_info(cls, days: int) -> None:
         print("\n === Day",days, "===")
-        for plant in new_plant.Garden:
+        for plant in cls.Garden:
             print(plant)
 
 if __name__ == "__main__":
@@ -53,15 +55,16 @@ if __name__ == "__main__":
             Plant.delete_plant(name)
         elif name == "Week":
             print("A week of Growth in the garden: ")
-            Plant.get_info()
+            Plant.get_info(days)
             while days <= 7:
                 for plant in Plant.Garden:
                     plant.grow()
                     plant.age(days)
                 days += 1
-                Plant.get_info()
+                Plant.get_info(days)
             break
         elif name == "Month":
+            days = 1
             while days <= 30:
                 for plant in Plant.Garden:
                     plant.grow()
@@ -71,10 +74,11 @@ if __name__ == "__main__":
                         print(plant.name, " died")
                         Plant.delete_plant(plant.name)
                 days += 1
-                Plant.get_info()
+                Plant.get_info(days)
         else:
             height = float(input("Enter height (cm): "))
             age_plant = int(input("Enter age (days): "))
             new_plant = Plant(name, height, age_plant)
+    
 
-        
+
