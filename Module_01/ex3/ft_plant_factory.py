@@ -1,4 +1,4 @@
-def uppercase(seed_type: str) -> str:
+def uppercase(name: str) -> str:
     table = {
         'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D', 'e': 'E',
         'f': 'F', 'g': 'G', 'h': 'H', 'i': 'I', 'j': 'J',
@@ -7,45 +7,38 @@ def uppercase(seed_type: str) -> str:
         'u': 'U', 'v': 'V', 'w': 'W', 'x': 'X', 'y': 'Y',
         'z': 'Z'
     }
-    if seed_type[0] in table:
-        first = table[seed_type[0]]
-    else:
-        first = seed_type[0]
-    return first + seed_type[1:]
+    if not name:
+        return ""
+    first = table.get(name[0].lower(), name[0])
+    return first + name[1:]
+
 
 class Plant:
-    Garden: list["Plant"] = []
+    def __init__(self, name: str, height: float, age: int):
+        self.name: str = name
+        self.height: float = height
+        self.age: int = age
 
-    def __init__(self, name: str, height: float, age_plant: int):
-        self.name = name
-        self.height = height
-        self.age_plant = age_plant
-        Plant.Garden.append(self)
+    def __str__(self) -> str:
+        return f"Created: {uppercase(self.name)} \
+            ({self.height}cm, {self.age} days)"
 
-    def __str__(self):
-        return f"{uppercase(self.name)}: {self.height}cm, {self.age_plant} days old"
 
-    def get_info(self):
-        print(self)
-
-def plant_factory(plants_data: list):
-    plant_list = []
-    for plant in plants_data:
-        for name, height, age in plant:
-            plant_list.append(Plant(name, height, age))
-
-if __name__ == "__main__":
-    plants_data = [
-        ("rose", 12.0, 0),
-        ("tomatoe", 14.0, 3),
-        ("fern", 4.2, 2),
-        ("poppy", 6.0, 1),
-        ("carrot", 11.0, 3),
-        ("clover", 8.2, 2),
+def main():
+    garden_inventory: list[Plant] = [
+        Plant("rose", 25.0, 30),
+        Plant("oak", 200.0, 365),
+        Plant("cactus", 5.0, 90),
+        Plant("sunflower", 80.0, 45),
+        Plant("fern", 15.0, 120)
     ]
 
-    plant_factory(plants_data)
+    print("=== Plant Factory Output ===")
+    for plant in garden_inventory:
+        print(plant)
 
-    print("=== Plant factory output ===")
-    for plant in Plant.Garden: 
-        plant.get_info()
+    print(f"Total plants created: {len(garden_inventory)}")
+
+
+if __name__ == "__main__":
+    main()
