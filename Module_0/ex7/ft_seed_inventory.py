@@ -13,18 +13,19 @@ def uppercase(seed_type: str) -> str:
         first = seed_type[0]
     return first + seed_type[1:]
 
-def ft_seed_inventory(seed_type: str, quantity: int, unit: str) -> None:
-	if unit == "packets":
-		print(uppercase(seed_type), "seeds:", quantity, unit, "available")
-	if unit == "grams":
-		print(uppercase(seed_type), "seeds:", quantity, unit, "total")
-	if unit == "area":
-		print(uppercase(seed_type), "seeds:", "covers", quantity, "square meters")
-	options =  "packets", "grams", "area"
-	if unit not in options: 
-		print("Unknown unit type")
 
-#ft_seed_inventory("tomato", 15, "packets")
-#ft_seed_inventory("carrot", 8, "grams")
-#ft_seed_inventory("lettuce", 12, "area")
-#ft_seed_inventory("lettuce", 12, "blabla")
+def ft_seed_inventory(seed_type: str, quantity: int, unit: str) -> None:
+    if unit == "packets":
+        print(uppercase(seed_type), "seeds:", quantity, unit, "available")
+    if unit == "grams":
+        print(uppercase(seed_type), "seeds:", quantity, unit, "total")
+    if unit == "area":
+        print(uppercase(seed_type), "seeds:", "covers", quantity,
+              "square meters")
+    options = "packets", "grams", "area"
+    if unit not in options:
+        print("Unknown unit type")
+# ft_seed_inventory("tomato", 15, "packets")
+# ft_seed_inventory("carrot", 8, "grams")
+# ft_seed_inventory("lettuce", 12, "area")
+# ft_seed_inventory("lettuce", 12, "blabla")
