@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Plant:
     def __init__(self, name: str, height: float, age: int):
         self.name = name
@@ -5,8 +7,8 @@ class Plant:
         self.age = age
 
     def show(self) -> None:
-        print(f"Created: {self.name.capitalize()}: \
-              {self.height}cm, {self.age} days old")
+        print(f"Created: {self.name.capitalize()}: "
+              f"{self.height}cm, {self.age} days old")
 
     def grow(self) -> None:
         self.height += 2.0
@@ -30,7 +32,12 @@ def main():
     for name, height, age in data:
         new_plant = plant_factory(name, height, age)
         new_plant.show()
-
+    
+    print("\n=== After Growth ===")
+    for name, height, age in data:
+        new_plant = plant_factory(name, height, age)
+        new_plant.grow()
+        new_plant.show()
 
 if __name__ == "__main__":
     main()
