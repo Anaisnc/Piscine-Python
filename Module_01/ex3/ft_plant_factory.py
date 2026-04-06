@@ -5,17 +5,20 @@ class Plant:
         self.age = age
 
     def show(self) -> None:
-        print(f"Created: {self.name.capitalize()}: {self.height}cm, {self.age} days old")
-    
+        print(f"Created: {self.name.capitalize()}: \
+              {self.height}cm, {self.age} days old")
+
     def grow(self) -> None:
         self.height += 2.0
-    
+
+
 def plant_factory(name: str, height: float, age: int) -> Plant:
-        return Plant(name, height, age)
+    return Plant(name, height, age)
+
 
 def main():
     print("=== Plant Factory Output ===")
-    
+
     data = [
         ("rose", 25.0, 30),
         ("fern", 200.0, 365),
@@ -28,5 +31,6 @@ def main():
         new_plant = plant_factory(name, height, age)
         new_plant.show()
 
+
 if __name__ == "__main__":
-   main()
+    main()

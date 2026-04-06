@@ -33,7 +33,8 @@ class Plant:
 
     def show(self) -> None:
         self.stats.show_calls += 1
-        print(f"{self.name.capitalize()}: {self.height:.1f}cm, {self.age} days old")
+        print(f"{self.name.capitalize()}: \
+              {self.height:.1f}cm, {self.age} days old")
 
 
 class Flower(Plant):
@@ -48,7 +49,8 @@ class Flower(Plant):
     def show(self) -> None:
         super().show()
         print(f"Color: {self.color}")
-        status = "blooming beautifully!" if self.is_blooming else "has not bloomed yet"
+        status = "blooming beautifully!" if self.is_blooming else \
+            "has not bloomed yet"
         print(f"{self.name.capitalize()} {status}")
 
 
@@ -62,7 +64,8 @@ class Tree(Plant):
             super().display()
             print(f"{self.shade_calls} shade")
 
-    def __init__(self, name: str, height: float, age: int, trunk_diameter: float):
+    def __init__(self, name: str, height: float,
+                 age: int, trunk_diameter: float):
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
         self.stats = self.TreeStats()
@@ -70,7 +73,8 @@ class Tree(Plant):
     def produce_shade(self) -> None:
         self.stats.shade_calls += 1
         print(f"Tree {self.name.capitalize()} now produces a shade of "
-              f"{self.height:.1f}cm long and {self.trunk_diameter:.1f}cm wide.")
+              f"{self.height:.1f}cm long and \
+                {self.trunk_diameter:.1f}cm wide.")
 
     def show(self) -> None:
         super().show()
@@ -98,7 +102,7 @@ def display_plant_stats(plant: Plant) -> None:
 
 def main():
     print("=== Garden statistics ===")
-    
+
     print("=== Check year-old")
     print(f"Is 30 days more than a year? -> {Plant.is_older_than_year(30)}")
     print(f"Is 400 days more than a year? -> {Plant.is_older_than_year(400)}")
@@ -135,6 +139,7 @@ def main():
     print("=== Anonymous")
     anon = Plant.create_anonymous()
     anon.show()
+
 
 if __name__ == "__main__":
     main()

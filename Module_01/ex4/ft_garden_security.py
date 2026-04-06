@@ -6,17 +6,18 @@ class Plant:
             self._height = 0.0
         else:
             self._height = height
-            
+
         if age < 0:
             print(f"{self.name.capitalize()}: Error, age can't be negative")
             self._age = 0
         else:
             self._age = age
-        
+
         print(f"Plant created: {self}")
 
     def __str__(self) -> str:
-        return f"{self.name.capitalize()}: {self._height:.1f}cm, {self._age} days old"
+        return f"{self.name.capitalize()}: \
+            {self._height:.1f}cm, {self._age} days old"
 
     def get_height(self) -> float:
         return self._height
@@ -43,7 +44,7 @@ class Plant:
 
 def main():
     print("=== Garden Security System ===")
-    
+
     rose = Plant("rose", 15.0, 10)
 
     rose.set_height(25)
