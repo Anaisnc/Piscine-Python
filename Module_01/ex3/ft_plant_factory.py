@@ -29,15 +29,16 @@ def main():
         ("tulip", 15.0, 2)
     ]
 
-    for name, height, age in data:
-        new_plant = plant_factory(name, height, age)
-        new_plant.show()
-    
+    my_garden = [plant_factory(n, h, a) for n, h, a in data]
+
+    for plant in my_garden:
+        plant.show()
+
     print("\n=== After Growth ===")
-    for name, height, age in data:
-        new_plant = plant_factory(name, height, age)
-        new_plant.grow()
-        new_plant.show()
+    for plant in my_garden:
+        plant.grow()
+        plant.show()
+
 
 if __name__ == "__main__":
     main()
