@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Plant:
     class Stats:
         def __init__(self):
@@ -33,8 +35,8 @@ class Plant:
 
     def show(self) -> None:
         self.stats.show_calls += 1
-        print(f"{self.name.capitalize()}: \
-              {self.height:.1f}cm, {self.age} days old")
+        print(f"{self.name.capitalize()}: "
+              f"{self.height:.1f}cm, {self.age} days old")
 
 
 class Flower(Plant):
@@ -73,8 +75,8 @@ class Tree(Plant):
     def produce_shade(self) -> None:
         self.stats.shade_calls += 1
         print(f"Tree {self.name.capitalize()} now produces a shade of "
-              f"{self.height:.1f}cm long and \
-                {self.trunk_diameter:.1f}cm wide.")
+              f"{self.height:.1f}cm long and "
+              f"{self.trunk_diameter:.1f}cm wide.")
 
     def show(self) -> None:
         super().show()
@@ -88,7 +90,7 @@ class Seed(Flower):
 
     def bloom(self) -> None:
         super().bloom()
-        self.seed_count = 42  # Example seed production
+        self.seed_count = 42
 
     def show(self) -> None:
         super().show()
@@ -107,7 +109,7 @@ def main():
     print(f"Is 30 days more than a year? -> {Plant.is_older_than_year(30)}")
     print(f"Is 400 days more than a year? -> {Plant.is_older_than_year(400)}")
 
-    print("=== Flower")
+    print("\n=== Flower")
     rose = Flower("rose", 15.0, 10, "red")
     rose.show()
     display_plant_stats(rose)
@@ -117,7 +119,7 @@ def main():
     rose.show()
     display_plant_stats(rose)
 
-    print("=== Tree")
+    print("\n=== Tree")
     oak = Tree("oak", 200.0, 365, 5.0)
     oak.show()
     display_plant_stats(oak)
@@ -125,7 +127,7 @@ def main():
     oak.produce_shade()
     display_plant_stats(oak)
 
-    print("=== Seed")
+    print("\n=== Seed")
     sun = Seed("sunflower", 80.0, 45, "yellow")
     sun.show()
     print("[make sunflower grow, age and bloom]")
@@ -136,7 +138,7 @@ def main():
     sun.show()
     display_plant_stats(sun)
 
-    print("=== Anonymous")
+    print("\n=== Anonymous")
     anon = Plant.create_anonymous()
     anon.show()
 
