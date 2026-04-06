@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 00 — Python Fundamentals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #f7f5f0;
+    --bg2: #edeae2;
+    --card: #ffffff;
+    --text: #1a1814;
+    --text2: #5a5650;
+    --accent: #3d6b4f;
+    --accent2: #7b4f2e;
+    --border: #d4cfc5;
+    --code-bg: #1e1c18;
+    --code-text: #e8e4d8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .module-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  h1 span { color: var(--accent2); font-style: italic; }
+
+  .subtitle {
+    color: var(--text2);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 48px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h2 .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text2);
+    margin-right: 8px;
+  }
+
+  p { margin-bottom: 14px; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: var(--bg2);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--accent2);
+  }
+
+  pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    padding: 20px 24px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0 24px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .schema-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0 28px;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 0.9rem;
+  }
+
+  th {
+    background: var(--bg2);
+    padding: 8px 14px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+  }
+
+  td {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+
+  .warn {
+    background: #fdf6ec;
+    border-left: 4px solid var(--accent2);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 16px 0;
+    font-size: 0.92rem;
+  }
+
+  .warn strong { color: var(--accent2); }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text2);
+    font-size: 0.82rem;
+    font-style: italic;
+    text-align: center;
+  }
+
+  svg text { font-family: 'Libre Baskerville', Georgia, serif; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="module-tag">Piscine Python · 42 School</div>
+  <h1>Module 00 — <span>Growing Code</span></h1>
+  <p class="subtitle">Python Fundamentals Through Garden Data</p>
+</header>
+
+<!-- Section 1 -->
+<h2><span class="num">01</span> print() — afficher du texte</h2>
+
+<div class="schema-card">
+<svg width="100%" viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="30" y="32" width="240" height="56" rx="8" fill="#eaf3de" stroke="#3B6D11" stroke-width="0.8"/>
+  <text x="150" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#3B6D11">Code Python</text>
+  <text x="150" y="75" text-anchor="middle" font-size="11" fill="#27500A">print("Hello, Garden!")</text>
+  <line x1="272" y1="60" x2="340" y2="60" stroke="#888" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="306" y="52" text-anchor="middle" font-size="10" fill="#888">exécution</text>
+  <rect x="342" y="32" width="260" height="56" rx="8" fill="#e1f5ee" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="472" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0F6E56">Sortie terminal</text>
+  <text x="472" y="75" text-anchor="middle" font-size="11" fill="#085041">Hello, Garden!</text>
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5"/></marker></defs>
+</svg>
+</div>
+
+<p><code>print()</code> envoie du texte vers la sortie standard (le terminal). C'est la fonction la plus simple et la première que tu utilises.</p>
+
+<pre>print("Hello, Garden Community!")   # affiche du texte
+print("Récolte :", 42)              # affiche texte + nombre
+print("a =", 3, "b =", 5)          # plusieurs arguments
+print()                             # ligne vide</pre>
+
+<p>Comportement important : <code>print()</code> ajoute automatiquement un saut de ligne à la fin. Pour l'éviter : <code>print("texte", end="")</code>.</p>
+
+<!-- Section 2 -->
+<h2><span class="num">02</span> input() — lire une saisie utilisateur</h2>
+
+<pre>name = input("Enter garden name: ")  # affiche le prompt, attend la saisie
+print("Garden:", name)</pre>
+
+<div class="warn"><strong>Attention cruciale :</strong> <code>input()</code> retourne <em>toujours une chaîne de caractères</em> (<code>str</code>). Pour travailler avec des nombres, il faut convertir :<br><br>
+<code>age = int(input("Âge en jours : "))</code></div>
+
+<!-- Section 3 -->
+<h2><span class="num">03</span> Variables et types de base</h2>
+
+<div class="schema-card">
+<svg width="100%" viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="30" width="140" height="60" rx="8" fill="#e1f5ee" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="90" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#085041">int</text>
+  <text x="90" y="75" text-anchor="middle" font-size="11" fill="#0F6E56">age = 75</text>
+  <rect x="180" y="30" width="140" height="60" rx="8" fill="#faeeda" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="250" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#633806">float</text>
+  <text x="250" y="75" text-anchor="middle" font-size="11" fill="#854F0B">area = 15.5</text>
+  <rect x="340" y="30" width="160" height="60" rx="8" fill="#eeedfe" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="420" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#3C3489">str</text>
+  <text x="420" y="75" text-anchor="middle" font-size="11" fill="#534AB7">name = "tomato"</text>
+  <rect x="520" y="30" width="130" height="60" rx="8" fill="#f1efe8" stroke="#5F5E5A" stroke-width="0.8"/>
+  <text x="585" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#444441">None</text>
+  <text x="585" y="75" text-anchor="middle" font-size="11" fill="#5F5E5A">res = None</text>
+  <text x="340" y="120" text-anchor="middle" font-size="11" fill="#888">En Python, le type est inféré automatiquement à l'assignation</text>
+</svg>
+</div>
+
+<p>En Python, pas de déclaration de type explicite. La variable existe dès qu'on lui assigne une valeur. La convention de nommage est le <code>snake_case</code>.</p>
+
+<!-- Section 4 -->
+<h2><span class="num">04</span> Opérateurs arithmétiques</h2>
+
+<table>
+  <tr><th>Opérateur</th><th>Opération</th><th>Exemple</th></tr>
+  <tr><td>+</td><td>addition</td><td>5 + 3 = 8</td></tr>
+  <tr><td>-</td><td>soustraction</td><td>8 - 3 = 5</td></tr>
+  <tr><td>*</td><td>multiplication</td><td>5 * 3 = 15</td></tr>
+  <tr><td>/</td><td>division (float)</td><td>7 / 2 = 3.5</td></tr>
+  <tr><td>//</td><td>division entière</td><td>7 // 2 = 3</td></tr>
+  <tr><td>%</td><td>modulo</td><td>7 % 2 = 1</td></tr>
+  <tr><td>**</td><td>puissance</td><td>2 ** 3 = 8</td></tr>
+</table>
+
+<!-- Section 5 -->
+<h2><span class="num">05</span> Conditions — if / elif / else</h2>
+
+<div class="schema-card">
+<svg width="100%" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5"/></marker></defs>
+  <rect x="240" y="20" width="200" height="44" rx="8" fill="#f1efe8" stroke="#888" stroke-width="0.8"/>
+  <text x="340" y="47" text-anchor="middle" font-size="12" fill="#444">age = int(input(...))</text>
+  <line x1="340" y1="64" x2="340" y2="98" stroke="#888" stroke-width="1.2" marker-end="url(#a2)"/>
+  <rect x="220" y="98" width="240" height="56" rx="8" fill="#faeeda" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="340" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#633806">age &gt; 60 ?</text>
+  <text x="340" y="142" text-anchor="middle" font-size="11" fill="#854F0B">condition booléenne</text>
+  <line x1="260" y1="154" x2="160" y2="195" stroke="#888" stroke-width="1.2" marker-end="url(#a2)"/>
+  <text x="196" y="185" text-anchor="middle" font-size="10" fill="#3B6D11">True</text>
+  <line x1="420" y1="154" x2="520" y2="195" stroke="#888" stroke-width="1.2" marker-end="url(#a2)"/>
+  <text x="484" y="185" text-anchor="middle" font-size="10" fill="#993C1D">False</text>
+  <rect x="60" y="195" width="200" height="44" rx="8" fill="#eaf3de" stroke="#3B6D11" stroke-width="0.8"/>
+  <text x="160" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#27500A">Plant is ready!</text>
+  <rect x="420" y="195" width="200" height="44" rx="8" fill="#faece7" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="520" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#712B13">Needs more time.</text>
+</svg>
+</div>
+
+<pre>def ft_plant_age():
+    age = int(input("Enter plant age in days: "))
+    if age > 60:
+        print("Plant is ready to harvest!")
+    else:
+        print("Plant needs more time to grow.")</pre>
+
+<!-- Section 6 -->
+<h2><span class="num">06</span> Boucles — for et récursion</h2>
+
+<div class="schema-card">
+<svg width="100%" viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5"/></marker></defs>
+  <text x="170" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#0F6E56">Itératif</text>
+  <text x="510" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#534AB7">Récursif</text>
+  <rect x="40" y="40" width="260" height="44" rx="8" fill="#e1f5ee" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="170" y="67" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">for i in range(1, n+1)</text>
+  <line x1="170" y1="84" x2="170" y2="118" stroke="#888" stroke-width="1.2" marker-end="url(#a3)"/>
+  <rect x="80" y="118" width="180" height="44" rx="8" fill="#e1f5ee" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="170" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">print("Day", i)</text>
+  <path d="M260 140 L290 140 L290 62 L304 62" fill="none" stroke="#888" stroke-width="1" marker-end="url(#a3)" opacity="0.5"/>
+  <text x="282" y="105" font-size="10" fill="#888">boucle</text>
+  <rect x="380" y="40" width="260" height="44" rx="8" fill="#eeedfe" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="510" y="67" text-anchor="middle" font-size="12" font-weight="700" fill="#3C3489">count(1)</text>
+  <line x1="510" y1="84" x2="510" y2="118" stroke="#888" stroke-width="1.2" marker-end="url(#a3)"/>
+  <rect x="380" y="118" width="260" height="44" rx="8" fill="#eeedfe" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="510" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#3C3489">count(i+1) → …</text>
+  <line x1="510" y1="162" x2="510" y2="188" stroke="#888" stroke-width="1.2" marker-end="url(#a3)"/>
+  <rect x="420" y="188" width="180" height="34" rx="8" fill="#eeedfe" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="510" y="210" text-anchor="middle" font-size="11" fill="#3C3489">if i &gt; n : stop</text>
+</svg>
+</div>
+
+<pre>def ft_count_harvest_iterative():
+    n = int(input("Days until harvest: "))
+    for i in range(1, n + 1):
+        print("Day", i)
+    print("Harvest time!")
+
+def ft_count_harvest_recursive():
+    n = int(input("Days until harvest: "))
+    def count(i):
+        if i > n:
+            print("Harvest time!")
+            return
+        print("Day", i)
+        count(i + 1)
+    count(1)</pre>
+
+<p><code>range(start, stop)</code> génère les entiers de <code>start</code> à <code>stop - 1</code>. Pour aller jusqu'à <code>n</code> inclus : <code>range(1, n+1)</code>.</p>
+
+<!-- Section 7 -->
+<h2><span class="num">07</span> Fonctions — def</h2>
+
+<pre>def ft_hello_garden():
+    print("Hello, Garden Community!")
+
+def ft_plot_area():
+    length = int(input("Enter length: "))
+    width  = int(input("Enter width: "))
+    print("Plot area:", length * width)</pre>
+
+<p>En Python, pas de type de retour dans la signature (sauf avec les type hints). Chaque fichier ne contient que la fonction demandée dans le module 00.</p>
+
+<!-- Section 8 -->
+<h2><span class="num">08</span> f-strings — formater l'affichage</h2>
+
+<pre>name = "tomato"
+qty  = 15
+print(f"{name.capitalize()} seeds: {qty} packets available")
+# → Tomato seeds: 15 packets available</pre>
+
+<!-- Section 9 -->
+<h2><span class="num">09</span> Type hints (ex. 7)</h2>
+
+<pre>def ft_seed_inventory(seed_type: str, quantity: int, unit: str) -> None:
+    name = seed_type.capitalize()
+    if unit == "packets":
+        print(f"{name} seeds: {quantity} packets available")
+    elif unit == "grams":
+        print(f"{name} seeds: {quantity} grams total")
+    elif unit == "area":
+        print(f"{name} seeds: covers {quantity} square meters")
+    else:
+        print("Unknown unit type")</pre>
+
+<p><code>-> None</code> signifie que la fonction ne retourne rien. Les types courants : <code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>None</code>. Vérifie avec <code>mypy</code>.</p>
+
+<!-- Section 10 -->
+<h2><span class="num">10</span> Erreurs fréquentes à éviter</h2>
+
+<div class="warn"><strong>1. Oublier de convertir input() :</strong><br>
+<code>days = input("Jours : ")</code> → days est un <code>str</code>, pas un <code>int</code> !<br>
+Toujours faire : <code>days = int(input("Jours : "))</code></div>
+
+<div class="warn"><strong>2. Confondre = et == :</strong><br>
+<code>if age = 60:</code> → SyntaxError<br>
+<code>if age == 60:</code> → correct</div>
+
+<div class="warn"><strong>3. Mauvaise indentation :</strong><br>
+Python utilise l'indentation (4 espaces) à la place des accolades. Un oubli = IndentationError.</div>
+
+<div class="warn"><strong>4. range() : borne haute exclue :</strong><br>
+<code>range(1, 5)</code> → 1, 2, 3, 4 (pas 5). Pour aller jusqu'à n : <code>range(1, n+1)</code>.</div>
+
+<div class="warn"><strong>5. Récursion sans cas de base :</strong><br>
+Une fonction récursive sans condition d'arrêt boucle indéfiniment → RecursionError.</div>
+
+<footer>Module 00 — Growing Code · Piscine Python 42 · Cours généré avec Claude</footer>
+</body>
+</html>
