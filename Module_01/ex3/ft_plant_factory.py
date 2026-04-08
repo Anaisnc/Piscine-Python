@@ -39,6 +39,10 @@ def main():
         plant.grow()
         plant.show()
 
+    print("\n=== Accessing only one plant ===")
+    print(f"{my_garden[2].name.capitalize()}: {my_garden[2].height}cm, "
+          f"{my_garden[2].age} days old.")
+
 
 if __name__ == "__main__":
     main()

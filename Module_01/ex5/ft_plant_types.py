@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Plant:
     def __init__(self, name: str, height: float, age: int):
         self.name = name
@@ -11,8 +13,8 @@ class Plant:
         self.age += 1
 
     def show(self) -> None:
-        print(f"{self.name.capitalize()}: \
-              {self.height:.1f}cm, {self.age} days old")
+        print(f"{self.name.capitalize()}: "
+              f"{self.height:.1f}cm, {self.age} days old")
 
 
 class Flower(Plant):
@@ -41,8 +43,8 @@ class Tree(Plant):
 
     def produce_shade(self) -> None:
         print(f"Tree {self.name.capitalize()} now produces a shade of "
-              f"{self.height:.1f}cm long and \
-                {self.trunk_diameter:.1f}cm wide.")
+              f"{self.height:.1f}cm long and "
+              f"{self.trunk_diameter:.1f}cm wide.")
 
     def show(self) -> None:
         super().show()
@@ -73,20 +75,20 @@ class Vegetable(Plant):
 def main():
     print("=== Garden Plant Types ===")
 
-    print("=== Flower")
+    print("\n=== Flower")
     rose = Flower("rose", 15.0, 10, "red")
     rose.show()
     print("[asking the rose to bloom]")
     rose.bloom()
     rose.show()
 
-    print("=== Tree")
+    print("\n=== Tree")
     oak = Tree("oak", 200.0, 365, 5.0)
     oak.show()
     print("[asking the oak to produce shade]")
     oak.produce_shade()
 
-    print("=== Vegetable")
+    print("\n=== Vegetable")
     tomato = Vegetable("tomato", 5.0, 10, "April")
     tomato.show()
     print("[make tomato grow and age for 20 days]")

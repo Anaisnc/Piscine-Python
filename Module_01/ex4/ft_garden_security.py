@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Plant:
     def __init__(self, name: str, height: float, age: int):
         self.name = name
@@ -13,11 +15,11 @@ class Plant:
         else:
             self._age = age
 
-        print(f"Plant created: {self}")
+        print(f"Plant created: {self}\n")
 
     def __str__(self) -> str:
-        return f"{self.name.capitalize()}: \
-            {self._height:.1f}cm, {self._age} days old"
+        return (f"{self.name.capitalize()}: "
+                f"{self._height:.1f}cm, {self._age} days old")
 
     def get_height(self) -> float:
         return self._height
@@ -36,11 +38,10 @@ class Plant:
     def set_age(self, new_age: int) -> None:
         if new_age < 0:
             print(f"{self.name.capitalize()}: Error, age can't be negative")
-            print("Age update rejected")
+            print("Age update rejected\n")
         else:
             self._age = int(new_age)
-            print(f"Age updated: {new_age} days")
-
+            print(f"Age updated: {new_age} days\n")
 
 def main():
     print("=== Garden Security System ===")
