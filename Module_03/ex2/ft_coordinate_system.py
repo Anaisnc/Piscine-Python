@@ -2,14 +2,14 @@
 import math
 
 
-def get_player_pos() -> tuple:
+def get_player_pos() -> tuple[float, float, float]:
     while True:
         raw = input("Enter new coordinates as floats in format 'x,y,z': ")
         parts = raw.split(",")
         if len(parts) != 3:
             print("Invalid syntax")
             continue
-        coords: list = []
+        coords: list[float] = []
         valid = True
         i = 0
         while i < len(parts):
@@ -23,7 +23,8 @@ def get_player_pos() -> tuple:
             return (coords[0], coords[1], coords[2])
 
 
-def distance(p1: tuple, p2: tuple) -> float:
+def distance(p1: tuple[float, float, float],
+             p2: tuple[float, float, float]) -> float:
     return math.sqrt(
         (p2[0] - p1[0]) ** 2
         + (p2[1] - p1[1]) ** 2

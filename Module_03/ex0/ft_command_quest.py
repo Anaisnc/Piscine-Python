@@ -17,5 +17,6 @@ def main() -> None:
             i += 1
     print(f"Total arguments: {len(args)}")
 
+
 if __name__ == "__main__":
     main()

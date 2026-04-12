@@ -8,14 +8,16 @@ ACTIONS = ["run", "jump", "move", "sleep", "eat", "grab",
            "release", "climb", "swim", "use"]
 
 
-def gen_event() -> Generator:
+def gen_event() -> Generator[tuple[str, str], None, None]:
     while True:
         name = random.choice(PLAYERS)
         action = random.choice(ACTIONS)
         yield (name, action)
 
 
-def consume_event(events: list) -> Generator:
+def consume_event(
+    events: list[tuple[str, str]]
+) -> Generator[tuple[str, str], None, None]:
     while len(events) > 0:
         idx = random.randint(0, len(events) - 1)
         event = events[idx]
@@ -31,7 +33,7 @@ def main() -> None:
         name, action = next(stream)
         print(f"Event {i}: Player {name} did action {action}")
         i += 1
-    event_list: list = []
+    event_list: list[tuple[str, str]] = []
     stream2 = gen_event()
     i = 0
     while i < 10:

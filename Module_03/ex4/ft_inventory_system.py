@@ -2,8 +2,8 @@
 import sys
 
 
-def parse_inventory(args: list) -> dict:
-    inventory: dict = {}
+def parse_inventory(args: list[str]) -> dict[str, int]:
+    inventory: dict[str, int] = {}
     i = 1
     while i < len(args):
         param = args[i]
@@ -25,11 +25,11 @@ def parse_inventory(args: list) -> dict:
     return inventory
 
 
-def display_inventory(inventory: dict) -> None:
+def display_inventory(inventory: dict[str, int]) -> None:
     print(f"Got inventory: {inventory}")
 
 
-def display_items(inventory: dict) -> None:
+def display_items(inventory: dict[str, int]) -> None:
     items = list(inventory.keys())
     print(f"Item list: {items}")
     total = sum(inventory.values())

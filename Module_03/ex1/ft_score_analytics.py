@@ -2,8 +2,8 @@
 import sys
 
 
-def parse_scores(args: list) -> list:
-    scores: list = []
+def parse_args(args: list[str]) -> list[int]:
+    scores: list[int] = []
     i = 1
     while i < len(args):
         try:
@@ -14,7 +14,7 @@ def parse_scores(args: list) -> list:
     return scores
 
 
-def display_stats(scores: list) -> None:
+def display_stats(scores: list[int]) -> None:
     total = sum(scores)
     average = total / len(scores)
     high = max(scores)
@@ -31,7 +31,7 @@ def display_stats(scores: list) -> None:
 
 def main() -> None:
     print("=== Player Score Analytics ===")
-    scores = parse_scores(sys.argv)
+    scores = parse_args(sys.argv)
     if len(scores) == 0:
         usage = "python3 ft_score_analytics.py <score1> <score2> ..."
         print(f"No scores provided. Usage: {usage}")
