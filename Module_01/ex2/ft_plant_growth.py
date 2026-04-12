@@ -7,19 +7,20 @@ class Plant:
         self.age_attribute = age
 
     def grow(self) -> None:
-        self.height += 2.0
+        self.height += 0.8
 
     def age(self) -> None:
         self.age_attribute += 1
 
     def show(self) -> None:
-        print(f"{self.name.capitalize()}: {self.height}cm, "
+        print(f"{self.name.capitalize()}: {self.height:.1f}cm, "
               f"{self.age_attribute} days old")
 
-def main():
+
+def main() -> None:
     print("=== Garden Plant Growth ===")
 
-    rose = Plant("rose", 12.0, 0)
+    rose = Plant("rose", 25.0, 30)
     initial_height = rose.height
     rose.show()
 
@@ -30,7 +31,7 @@ def main():
         rose.show()
 
     total_growth = rose.height - initial_height
-    print(f"Growth this week: {total_growth}cm")
+    print(f"Growth this week: {total_growth:.1f}cm")
 
 
 if __name__ == "__main__":

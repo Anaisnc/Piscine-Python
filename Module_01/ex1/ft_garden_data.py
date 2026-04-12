@@ -11,7 +11,7 @@ class Plant:
               f"{self.age} days old")
 
 
-def main():
+def main() -> None:
     print("=== Garden Plant Registry ===")
 
     rose = Plant("rose", 15.5, 5)
