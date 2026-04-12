@@ -1,13 +1,4 @@
 #!/usr/bin/env python3
-<<<<<<< HEAD
-
-import sys
-
-
-def main() -> None:
-    print("=== Player Score Analytics ===")
-    args: list[str] = sys.argv[1:]
-=======
 import sys
 
 
@@ -46,7 +37,6 @@ def main() -> None:
         print(f"No scores provided. Usage: {usage}")
         return
     display_stats(scores)
->>>>>>> origin/main
 
 
 if __name__ == "__main__":
