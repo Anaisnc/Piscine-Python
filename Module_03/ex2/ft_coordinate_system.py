@@ -11,12 +11,12 @@ def get_player_pos() -> tuple[float, float, float]:
         
         for char in (input_string + ","):
             if char == ",":
-                cleaned = current_val.strip()
-                if cleaned:
+                number_only = current_val.strip()
+                if number_only:
                     try:
-                        coords.append(float(cleaned))
+                        coords.append(float(number_only))
                     except ValueError as e:
-                        print(f"Error on parameter '{cleaned}': {e}")
+                        print(f"Error on parameter '{number_only}': {e}")
                         valid_parse = False
                         break
                 current_val = ""
