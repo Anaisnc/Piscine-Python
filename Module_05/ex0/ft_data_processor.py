@@ -9,7 +9,7 @@ class DataProcessor(ABC):
 
     @abstractmethod
     def validate(self, data):
-        isinstance(data, Any)
+        pass
 
     @abstractmethod
     def ingest(self, data):
