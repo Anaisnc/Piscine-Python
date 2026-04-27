@@ -26,7 +26,8 @@ class NumericProcessor(DataProcessor):
     def validate(self, data: Any) -> bool:
         if isinstance(data, (int, float)):
             return True
-        if isinstance(data, list) and all(isinstance(x, (int, float)) for x in data):
+        if isinstance(data, list) and all(isinstance
+                                          (x, (int, float)) for x in data):
             return True
         return False
 
@@ -73,3 +74,33 @@ class LogProcessor(DataProcessor):
         if not self.validate(data):
             raise TypeError(f"LogProcessor: invalid data: {type(data)}")
         self._storage.append(str(data))
+
+def main() -> None:
+    num = NumericProcessor()
+    num.ingest(42)
+    num.ingest(3.14)
+    num.ingest([1, 2, 3])
+    print(num.output())
+    print(num.output())
+    print(num.output())
+
+    txt = TextProcessor()
+    txt.ingest("hello")
+    txt.ingest(["foo", "bar"])
+    print(txt.output())
+    print(txt.output())
+
+    log = LogProcessor()
+    log.ingest({"level": "INFO", "msg": "started"})
+    log.ingest([{"level": "WARNING", "msg": "low memory"}, {"level": "ERROR", "msg": "crash"}])
+    print(log.output())
+    print(log.output())
+
+    try:
+        num.ingest("not a number")
+    except TypeError as e:
+        print(e)
+
+
+if __name__ == "__main__":
+    main()
