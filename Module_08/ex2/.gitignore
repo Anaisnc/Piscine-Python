@@ -1,0 +1,17 @@
+# .env contains real secrets (API keys, database passwords).
+# Every developer creates their own from .env.example.
+# Committing it would expose credentials in version control history.
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+matrix_env/
+.venv/
+venv/
+
+# Tool caches
+.mypy_cache/
